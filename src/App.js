@@ -9,7 +9,7 @@ import EditFinalQuizQuestion from './comps/EditFinalQuizQuestion';
 function App() {
   const [isOpen,setIsOpne] = useState(false)
   const [selectd,setSelected] = useState("")
-  const [options,SetOptions] = useState([{id:0},{id:1},{id:2},{id:3},{id:4}])
+  const [options,SetOptions] = useState([{id:0, one: 1,two: 2 , three: 3 , four: 4, five: 5},{id:1, one: 1,two: 2 , three: 3 , four: 4, five: 5},{id:2, one: 1,two: 2 , three: 3 , four: 4, five: 5},{id:3, one: 1,two: 2 , three: 3 , four: 4, five: 5},{id:4, one: 1,two: 2 , three: 3 , four: 4, five: 5},])
 
   const handleClick = () => {
     setIsOpne((prev) => !prev)
