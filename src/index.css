@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -11,3 +14,40 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.glass{
+ background: rgba(255, 255, 255, 0.04);
+ border-radius: 16px;
+ box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+ backdrop-filter: blur(4.5px);
+ -webkit-backdrop-filter: blur(4.5px);
+ border: 1px solid rgba(255, 255, 255, 0.09);
+ }
+ .glass2{
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.5px);
+  -webkit-backdrop-filter: blur(4.5px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+}
+.glass3{
+/* From https://css.glass */
+background: rgba(255, 255, 255, 0.623);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.384);
+}
+.animation-delay-500{
+  animation-delay: 500ms;
+}
+.animation-delay-1000{
+  animation-delay: 1000ms;
+}
+.animation-delay-2000{
+  animation-delay: 2000ms;
+}
+.animation-delay-3000{
+  animation-delay: 3000ms;
+}
+
