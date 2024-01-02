@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
 export default function EditQuiz(props) {
-    const [X1,setX1] = useState(props.values.one)
-    const [X2,setX2] = useState(props.values.two)
-    const [X3,setX3] = useState(props.values.three)
-    const [X4,setX4] = useState(props.values.four)
-    const [X5,setX5] = useState(props.values.five)
+    const [X1,setX1] = useState(``)
+    const [X2,setX2] = useState(``)
+    const [X3,setX3] = useState(``)
+    const [X4,setX4] = useState(``)
+    const [X5,setX5] = useState(``)
 
     const handleClick = () => {
         props.setValues({id:props.id ,one: X1,two: X2,three: X3,four: X4,five: X5})

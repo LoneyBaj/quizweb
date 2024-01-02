@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export default function EditFinalQuizQuestion(props) {
-    const [X1,setX1] = useState(props.values.one)
+    const [X1,setX1] = useState(``)
 
     const handleClick = () => {
         props.setValues({id:props.id ,one: X1})

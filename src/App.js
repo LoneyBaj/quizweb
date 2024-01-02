@@ -17,21 +17,17 @@ function App() {
   const handleSwitch = () => {
     switch(selectd){
       case "A":
-        return <EditQuiz column="A" isOpen={isOpen} id={0} setValues={setValues} values={options[0]}/>
+        return <EditQuiz column="A" isOpen={isOpen} id={0} setValues={setValues}/>
       case "B":
-        return <EditQuiz column="B" isOpen={isOpen} id={1} setValues={setValues} values={options[1]}/>
+        return <EditQuiz column="B" isOpen={isOpen} id={1} setValues={setValues}/>
       case "C":
-        return <EditQuiz column="C" isOpen={isOpen} id={2} setValues={setValues} values={options[2]}/>
+        return <EditQuiz column="C" isOpen={isOpen} id={2} setValues={setValues}/>
       case "D":
-        return <EditQuiz column="D" isOpen={isOpen} id={3} setValues={setValues} values={options[3]}/>
+        return <EditQuiz column="D" isOpen={isOpen} id={3} setValues={setValues}/>
       case "P":
         return <EditFinalQuizQuestion column="Final" isOpen={isOpen} id={4} setValues={setValues} values={options[4]}/>
     }
   }
-    useEffect(() => {
-      const data = JSON.parse(localStorage.getItem("items"))
-      SetOptions(data)
-    },[])
   const setValues = (value) => {
     var temp = []
     options.map((prev) => prev.id != value.id ? temp.push(prev) : temp.push({id: value.id,one: value.one, two: value.two, three: value.three, four: value.four, five: value.five}))
@@ -39,10 +35,11 @@ function App() {
     console.log(options)
     console.log(value)
   }
-
-  window.onbeforeunload = closingCode;
-  function closingCode(){
-    localStorage.setItem("items",JSON.stringify(options))
+  const handleSave = () =>{
+    localStorage.setItem("values",JSON.stringify(options))
+  }
+  const handleLoad = () =>  {
+    SetOptions(JSON.parse(localStorage.getItem("values")))
   }
   return (
     <div className="bg-gradient-to-l from-orange-100 to-rose-100 w-screen h-screen flex items-start justify-center ">
@@ -59,31 +56,35 @@ function App() {
               </select> : ""}
               {handleSwitch()}
           </div>
+          <div className='flex absolute left-4 top-2'>
+            <button className='glass3 p-4 m-2 font-semibold' onClick={handleSave}>Save</button>
+            <button className='glass3 p-3 font-semibold' onClick={handleLoad}>Load Previous</button>
+          </div>
           <div className="grid grid-rows-4 grid-cols-4 gap-8 p-[100px]">
-        <Option text={options[0].one} option="A1"/>
-        <Option text={options[1].one} option="B1"/>
-        <Option text={options[2].one} option="C1"/>
-        <Option text={options[3].one} option="D1"/>
+            <Option text={options[0].one} option="A1"/> 
+            <Option text={options[1].one} option="B1"/>
+            <Option text={options[2].one} option="C1"/>
+            <Option text={options[3].one} option="D1"/>
 
-        <Option text={options[0].two} option="A2"/>
-        <Option text={options[1].two} option="B2"/>
-        <Option text={options[2].two} option="C2"/>
-        <Option text={options[3].two} option="D2"/>
+            <Option text={options[0].two} option="A2"/>
+            <Option text={options[1].two} option="B2"/>
+            <Option text={options[2].two} option="C2"/>
+            <Option text={options[3].two} option="D2"/>
 
-        <Option text={options[0].three} option="A3"/>
-        <Option text={options[1].three} option="B3"/>
-        <Option text={options[2].three} option="C3"/>
-        <Option text={options[3].three} option="D3"/>
+            <Option text={options[0].three} option="A3"/>
+            <Option text={options[1].three} option="B3"/>
+            <Option text={options[2].three} option="C3"/>
+            <Option text={options[3].three} option="D3"/>
 
-        <Option text={options[0].four} option="A4"/>
-        <Option text={options[1].four} option="B4"/>
-        <Option text={options[2].four} option="C4"/>
-        <Option text={options[3].four} option="D4"/>
+            <Option text={options[0].four} option="A4"/>
+            <Option text={options[1].four} option="B4"/>
+            <Option text={options[2].four} option="C4"/>
+            <Option text={options[3].four} option="D4"/>
 
-        <Option text={options[0].five} option="Zgjedhja e Kolonës A"/>
-        <Option text={options[1].five} option="Zgjedhja e Kolonës B"/>
-        <Option text={options[2].five} option="Zgjedhja e Kolonës C"/>
-        <Option text={options[3].five} option="Zgjedhja e Kolonës D"/>
+            <Option text={options[0].five} option="Zgjedhja e Kolonës A"/>
+            <Option text={options[1].five} option="Zgjedhja e Kolonës B"/>
+            <Option text={options[2].five} option="Zgjedhja e Kolonës C"/>
+            <Option text={options[3].five} option="Zgjedhja e Kolonës D"/>
  </div>
  <div className='absolute z-10 top-[595px]'><FinalOption text={options[4].one} option="Përgjegja Përfundimtare"/></div>
     </div>
